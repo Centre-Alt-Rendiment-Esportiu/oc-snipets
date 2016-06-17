@@ -67,7 +67,7 @@ def main():
     dir_a_controlar = "/home/anna/test/"
     abans = dict ([(f, None) for f in os.listdir (dir_a_controlar)])
     while True:
-      time.sleep (5)
+      time.sleep (60)
       despres = dict ([(f, None) for f in os.listdir (dir_a_controlar)])
       nou = [f for f in despres if not f in abans]
       eliminat = [f for f in abans if not f in despres]
