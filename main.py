@@ -11,6 +11,9 @@ try:
     import logging
     import logging.handlers
     import unicodedata
+    import keyring
+    import secret
+
 
 except ImportError:
     print((os.linesep * 2).join(["Error en importar els moduls:",
@@ -57,7 +60,8 @@ def main():
     oc = owncloud.Client('https://***********')
     id = 'username'
     log = logs(id)
-    clau = getpass.getpass(prompt='Introdueix la clau: ')
+    clau = keyring.get_password('owncloud','anna.golub')
+    #clau = getpass.getpass(prompt='Introdueix la clau: ')
     #clau = 'passwd'
     oc.login(id, clau)
     print "Connexió creada amb èxit!"
