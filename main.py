@@ -57,18 +57,22 @@ def logs(id):
     
 def main():
     """Monitorització d'una carpeta """              
-    oc = owncloud.Client('https://***********')
-    id = 'username'
+    oc = owncloud.Client('https://registre.car.edu/')
+    id = '********'
+    clau = '*********'
     log = logs(id)
-    clau = keyring.get_password('owncloud','anna.golub')
+    #clau = keyring.get_password('owncloud','mcollado')
     #clau = getpass.getpass(prompt='Introdueix la clau: ')
     #clau = 'passwd'
-    oc.login(id, clau)
-    print "Connexió creada amb èxit!"
-    log.info("> S'ha establert connexió amb l'usuari: " + id )
+    try:
+        log.info("Iniciant la connexio")
+        oc.login(id, clau)
+        log.info("> S'ha establert connexió amb l'usuari: " + id )
+    except Exception as err:
+        log.warning("Error al connectar: %s", err)
     #oc.mkdir('testdir2')
     dir_a_enviar = "testdir2/"
-    dir_a_controlar = "/home/anna/test/"
+    dir_a_controlar = "test_dir"
     abans = dict ([(f, None) for f in os.listdir (dir_a_controlar)])
     while True:
       time.sleep (60)

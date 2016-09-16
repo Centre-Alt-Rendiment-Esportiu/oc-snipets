@@ -5,4 +5,4 @@ __date__ = "01/06/2016"
 
 
 import keyring
-keyring.set_password("owncloud", "anna.golub", "*******")
+keyring.set_password("owncloud", "mcollado", "C0llad01018")

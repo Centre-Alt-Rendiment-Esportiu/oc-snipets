@@ -63,3 +63,6 @@ target/
 
 # PyCharm IDE
 .idea
+/secret.py
+/test_dir/
+test_dir/
